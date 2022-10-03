@@ -4,7 +4,6 @@
     <div class="col-md-12">
       <app-recipes *ngIf="feature === 'recipes'"></app-recipes>
       <app-shopping-list  *ngIf="feature !== 'recipes'"></app-shopping-list>
-      <p *ngShow="true"  appBetterDirective [userColor]="'yellow'">Style using custom directive</p>
     </div>
   </div>
 </div>

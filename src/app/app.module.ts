@@ -10,9 +10,6 @@ import { RecipesItemComponent } from './recipes/recipes-item/recipes-item.compon
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { FormsModule } from '@angular/forms';
-import { CustomDirective } from './custom.directive';
-import { BetterDirectiveDirective } from './better.directive.directive';
-import { CustomStructuralDirectiveDirective } from './custom.structural-directive.directive';
 
 @NgModule({
   declarations: [
@@ -24,9 +21,7 @@ import { CustomStructuralDirectiveDirective } from './custom.structural-directiv
     RecipesItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    CustomDirective,
-    BetterDirectiveDirective,
-    CustomStructuralDirectiveDirective
+   
   ],
   imports: [
     BrowserModule,
