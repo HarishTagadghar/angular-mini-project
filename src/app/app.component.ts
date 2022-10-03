@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular-App';
+  feature:string = 'recipes'
+
+  getFeature(feature){
+    this.feature = feature
+  }
 }

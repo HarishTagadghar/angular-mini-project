@@ -1,8 +1,15 @@
 <div class="row">
     <div class="col-md-5">
-        <app-recipes-list></app-recipes-list>
+        <app-recipes-list
+        (selectedRecipe)="selectItem($event)"></app-recipes-list>
     </div>
     <div class="col-md-7">
-        <app-recipes-details></app-recipes-details>
+        <app-recipes-details
+        *ngIf="selectedItem;else noselected"
+        [recipe]="selectedItem"
+        ></app-recipes-details>
+        <ng-template #noselected>
+            Please select any recipe
+        </ng-template>
     </div>
 </div>
