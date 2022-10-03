@@ -1,18 +1,20 @@
-import { Directive , ElementRef ,Renderer2 , OnInit , HostListener , HostBinding} from '@angular/core';
+import { Directive , ElementRef ,Renderer2 , OnInit , HostListener , HostBinding , Input} from '@angular/core';
 
 @Directive({
   selector: '[appBetterDirective]'
 })
 export class BetterDirectiveDirective implements OnInit {
-
-  @HostBinding('style.backgroundColor') backgroundColor : string = 'green'
+@Input() userColor :string = 'green'
+  @HostBinding('style.backgroundColor') backgroundColor : string;
   constructor(private elRef: ElementRef , private renderar : Renderer2) {
-    this.renderar.setStyle(this.elRef.nativeElement , 'color' , 'white')
+    this.renderar.setStyle(this.elRef.nativeElement , 'color' , 'black')
 
    }
 
   ngOnInit(): void {
-    this.renderar.setStyle(this.elRef.nativeElement , 'backgroundColor' , 'green')
+    // this.renderar.setStyle(this.elRef.nativeElement , 'backgroundColor' , 'green')
+    this.backgroundColor = this.userColor
+
   }
   @HostListener('mouseenter') mouseEnter(eventData : Event){
     this.backgroundColor = 'red'
