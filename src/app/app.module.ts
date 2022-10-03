@@ -12,6 +12,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { FormsModule } from '@angular/forms';
 import { CustomDirective } from './custom.directive';
 import { BetterDirectiveDirective } from './better.directive.directive';
+import { CustomStructuralDirectiveDirective } from './custom.structural-directive.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BetterDirectiveDirective } from './better.directive.directive';
     ShoppingListComponent,
     ShoppingEditComponent,
     CustomDirective,
-    BetterDirectiveDirective
+    BetterDirectiveDirective,
+    CustomStructuralDirectiveDirective
   ],
   imports: [
     BrowserModule,
