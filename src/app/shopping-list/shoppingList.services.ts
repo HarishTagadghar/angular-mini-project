@@ -5,4 +5,8 @@ export class ShoppingListServices {
         new ingredientsModel("Item one" , 5),
         new ingredientsModel("Item two" , 10),
       ]
+
+      addIngredientsToSL(ingredient:ingredientsModel[]){
+        this.ingredients.push(...ingredient)
+      }
 }

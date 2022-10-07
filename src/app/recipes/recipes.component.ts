@@ -21,7 +21,5 @@ export class RecipesComponent implements OnInit {
     )
   }
 
-  selectItem(data){
-   this.selectedItem = data
-  }
+ 
 }
