@@ -1,4 +1,5 @@
-import { Component, Output  , EventEmitter } from "@angular/core";
+import { Component, Output  } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,9 @@ import { Component, Output  , EventEmitter } from "@angular/core";
 })
 
 export class HeaderComponent {
-@Output() feature  = new EventEmitter<string>()
+@Output() feature  = new Subject<string>()
 
 selectFeature(feature:string){
- this.feature.emit(feature)
+ this.feature.next(feature)
 }
 }
