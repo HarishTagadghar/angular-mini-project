@@ -1,22 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { ingredientsModel } from '../shared/ingredients.model';
-import { ShoppingListServices } from './shoppingList.services';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from './shopping-list.service';
+
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
 })
-export class ShoppingListComponent implements OnInit {
+export class ShoppingListComponent implements OnInit, OnDestroy {
+  ingredients: Ingredient[];
+  private subscription: Subscription;
 
-  ingredients: ingredientsModel[]
+  constructor(private slService: ShoppingListService) { }
 
-  constructor(private shopingListServices : ShoppingListServices) { }
-
-  ngOnInit(): void {
-    this.ingredients = this.shopingListServices.ingredients
+  ngOnInit() {
+    this.ingredients = this.slService.getIngredients();
+    this.subscription = this.slService.ingredientsChanged
+      .subscribe(
+        (ingredients: Ingredient[]) => {
+          this.ingredients = ingredients;
+        }
+      );
   }
 
-  addIngredient(ingredient: ingredientsModel){
-    this.ingredients.push(ingredient)
+  onEditItem(index: number) {
+    this.slService.startedEditing.next(index);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
